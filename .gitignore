@@ -1,0 +1,19 @@
+.gradle/
+build/
+*.log
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.classpath
+*.project
+bin/
+out/
+
+# Secrets / signing material — never commit
+*.asc
+*.gpg
+signing-key*
+.env
