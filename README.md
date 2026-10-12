@@ -36,12 +36,13 @@ import java.util.List;
 
 Wire wire = new Wire("sk_live_...");
 
-// Create a PaymentIntent. Amounts are in minor units (MNT integer).
+// Create a PaymentIntent. Amounts are whole tögrög (MNT integer, no fractional
+// part): 50000 = 50,000 ₮. Without allowedOperators, Wire routes to the
+// operators enabled on your project.
 PaymentIntent pi = wire.paymentIntents().create(
         PaymentIntentCreateParams.create()
                 .amount(50000)
-                .currency("MNT")
-                .allowedOperators(List.of("sandbox")));
+                .currency("MNT"));
 System.out.println(pi.id + " " + pi.status);
 
 // Confirm it.
